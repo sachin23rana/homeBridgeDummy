@@ -141,12 +141,12 @@ const Hero = () => {
       </div>
       <div className="h-16 w-[38rem] border-x-4 border-t-4 rounded-tl-xl rounded-tr-xl border-sky-300 relative">
         <div className="h-28 absolute left-1/2 border-[2px] top-[-88%] border-sky-300"></div>
-        <div className="triangle absolute bottom-[-17%] z-10 -right-[2rem] w-0 h-0 border-l-[30px] border-r-[30px] border-b-[40px] border-transparent border-b-[#fffbe6]"></div>
-        <div className="triangle absolute bottom-[-5%] -right-[2rem] w-0 h-0 border-l-[30px] border-r-[30px] border-b-[40px] border-transparent border-b-[#45b8e6]"></div>        
-        <div className="triangle absolute bottom-[-17%] z-10 left-[45.4%] w-0 h-0 border-l-[30px] border-r-[30px] border-b-[40px] border-transparent border-b-[#fffbe6]"></div>
-        <div className="triangle absolute bottom-[-5%] left-[45.4%] w-0 h-0 border-l-[30px] border-r-[30px] border-b-[40px] border-transparent border-b-[#45b8e6]"></div>        
-        <div className="triangle absolute bottom-[-17%] z-10 -left-[2rem] w-0 h-0 border-l-[30px] border-r-[30px] border-b-[40px] border-transparent border-b-[#fffbe6]"></div>
-        <div className="triangle absolute bottom-[-5%] -left-[2rem] w-0 h-0 border-l-[30px] border-r-[30px] border-b-[40px] border-transparent border-b-[#45b8e6]"></div>        
+        <div className="triangle absolute bottom-[-5%] z-30 -right-[2rem] w-0 h-0 border-l-[30px] border-r-[30px] border-b-[40px] border-transparent border-b-[#fffbe6]"></div>
+        <div className="triangle absolute bottom-[-0%] -right-[2rem] w-0 h-0 border-l-[30px] border-r-[30px] border-b-[40px] border-transparent border-b-[#45b8e6]"></div>        
+        <div className="triangle absolute bottom-[-5%] z-30 left-[45.4%] w-0 h-0 border-l-[30px] border-r-[30px] border-b-[40px] border-transparent border-b-[#fffbe6]"></div>
+        <div className="triangle absolute bottom-[-0%] left-[45.4%] w-0 h-0 border-l-[30px] border-r-[30px] border-b-[40px] border-transparent border-b-[#45b8e6]"></div>        
+        <div className="triangle absolute bottom-[-5%] z-30 -left-[2rem] w-0 h-0 border-l-[30px] border-r-[30px] border-b-[40px] border-transparent border-b-[#fffbe6]"></div>
+        <div className="triangle absolute bottom-[-0%] -left-[2rem] w-0 h-0 border-l-[30px] border-r-[30px] border-b-[40px] border-transparent border-b-[#45b8e6]"></div>        
       </div>
 
 
