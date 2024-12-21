@@ -1,3 +1,5 @@
+import React from "react";
+
 const products = [
   { id: 1, name: "Efficient HVAC", icon: "/icons/hvac.svg" },
   { id: 2, name: "Tankless HWH", icon: "/icons/hwh.svg" },
@@ -15,11 +17,11 @@ const Products = () => {
       <h2 className="text-center text-4xl font-medium mb-12">Our Products</h2>
 
       {/* Product Flex Container */}
-      <div className="flex flex-wrap justify-center gap-6 w-[80%] px-0 md:px-4">
+      <div className="flex flex-wrap justify-center gap-10 w-[70%] px-0 md:px-4">
         {products.map((product) => (
           <div
             key={product.id}
-            className="group flex flex-col items-center justify-center w-[80%] lg:w-1/3 xl:w-[15%]  h-[220px] md:h-[180px] rounded-lg bg-[#101010] p-4 border border-[#0D72B9]/50 transition-all duration-300 shadow-[0_0_10px_#0D72B9] hover:bg-[#0D72B9]/10 hover:scale-105"
+            className="group flex flex-col items-center justify-center w-[80%] md:w-[200px]  h-[200px] md:h-[180px] rounded-lg bg-[#101010] p-4 border border-[#0D72B9]/50 transition-all duration-300 shadow-[0_0_20px_#0D72B9] hover:bg-[#0D72B9]/10 hover:scale-105"
           >
             {/* Icon */}
             <img

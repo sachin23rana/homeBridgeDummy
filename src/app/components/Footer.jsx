@@ -1,8 +1,6 @@
-
 import React from "react";
 import Link from "next/link";
 import Image from "next/image";
-import Button from "./Button";
 const FOOT_LINKS = [
   { href: "/", key: "home", label: "Home" },
   { href: "/", key: "about", label: "About" },
@@ -15,20 +13,20 @@ const Footer = () => {
       <footer className="w-full">
         <div className="w-full flexBetween padding-container relative z-30 py-10 ">
           <Link href="/">
-            <Image src="/footerlogo.svg" alt="logo" width={130} height={29} />
+            <img src="/footerlogo.svg" className="md:w-[160px] md:h-[50px] w-[130px] h-[29px]" alt="logo" />
           </Link>
-          <ul className="hidden h-full gap-12 lg:flex">
+          <ul className="hidden h-full gap-12 md:flex text-lg">
             {FOOT_LINKS.map((link) => (
               <Link
                 href={link.href}
                 key={link.key}
-                className="medium-14 text-white flexCenter cursor-pointer pb-1.5 transition-all  hover:font-bold"
+                className="text-base text-white flexCenter cursor-pointer pb-1.5 transition-all  hover:font-bold"
               >
                 {link.label}
               </Link>
             ))}
           </ul>
-          <div className="flex flex-row gap-2">
+          <div className="flex flex-row gap-3">
             <a
               href="https://www.facebook.com"
               target="_blank"
@@ -37,8 +35,8 @@ const Footer = () => {
               <Image
                 src="/icons/facebook.svg"
                 alt="Facebook"
-                width={25}
-                height={25}
+                width={30}
+                height={30}
                 className="transition-opacity duration-300 hover:opacity-80"
               />
             </a>
@@ -51,8 +49,8 @@ const Footer = () => {
               <Image
                 src="/icons/instagram.svg"
                 alt="Instagram"
-                width={25}
-                height={25}
+                width={30}
+                height={30}
                 className="transition-opacity duration-300 hover:opacity-80"
               />
             </a>
@@ -65,8 +63,8 @@ const Footer = () => {
               <Image
                 src="/icons/twitter.svg"
                 alt="Twitter"
-                width={25}
-                height={25}
+                width={30}
+                height={30}
                 className="transition-opacity duration-300 hover:opacity-80"
               />
             </a>
@@ -79,8 +77,8 @@ const Footer = () => {
               <Image
                 src="/icons/linkedin.svg"
                 alt="LinkedIn"
-                width={25}
-                height={25}
+                width={30}
+                height={30}
                 className="transition-opacity duration-300 hover:opacity-80"
               />
             </a>
@@ -88,11 +86,13 @@ const Footer = () => {
         </div>
         <hr className="border-gray-500" />
 
-        <div className="w-full flex justify-center items-center padding-container relative z-30 py-10">
-          <ul className="flex space-x-6 text-sm">
+        <div className="w-full flex  justify-center items-center padding-container relative z-30 py-10 pb-5">
+          <ul className="flex flex-col md:flex-row flexCenter gap-2 space-x-6 text-sm">
             <li>2023 HomeBridge. All rights reserved.</li>
+            <div className="flex gap-4">
             <li>Privacy Policy</li>
             <li>Terms of Service</li>
+            </div>
             <li>Cookies Settings</li>
           </ul>
         </div>
@@ -102,4 +102,3 @@ const Footer = () => {
 };
 
 export default Footer;
-//hey

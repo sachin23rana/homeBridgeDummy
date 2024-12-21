@@ -1,10 +1,15 @@
 import React from "react";
-import { NAV_LINKS } from "@/constants";
 import Link from "next/link";
 import Image from "next/image";
 import Button from "./Button";
 
 const Navbar = () => {
+  const NAV_LINKS = [
+    { href: "/", key: "home", label: "Home" },
+    { href: "/", key: "about", label: "About" },
+    { href: "/", key: "products", label: "Products" },
+  ];
+
   return (
     <nav className="w-full flexBetween padding-container relative z-30 py-3 bg-white ">
       <Link href="/">

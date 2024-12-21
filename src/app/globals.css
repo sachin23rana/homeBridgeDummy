@@ -83,7 +83,7 @@ body {
   }
 
   .regular-20 {
-    @apply text-[20px] font-[400];
+    @apply text-[18px] font-[400];
   }
 
   .regular-18 {

@@ -1,13 +1,6 @@
 import React from "react";
 
-type ButtonProps = {
-  type: "button" | "submit";
-  title: string;
-  variant: string;
-  full?: boolean;
-};
-
-const Button = ({ type, title, variant, full }: ButtonProps) => {
+const Button = ({ type, title, variant, full }) => {
   return (
     <button
       type={type}
