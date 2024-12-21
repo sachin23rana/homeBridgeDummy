@@ -17,7 +17,7 @@ const Products = () => {
       <h2 className="text-center text-4xl font-medium mb-12">Our Products</h2>
 
       {/* Product Flex Container */}
-      <div className="flex flex-wrap justify-center gap-10 w-[70%] px-0 md:px-4">
+      <div className="flex flex-wrap justify-center gap-12 md:gap-10  md:w-[70%] w-[85%] px-0 md:px-4">
         {products.map((product) => (
           <div
             key={product.id}
