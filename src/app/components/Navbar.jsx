@@ -11,7 +11,7 @@ const Navbar = () => {
   ];
 
   return (
-    <nav className="w-full flexBetween padding-container relative z-30 py-3 bg-white ">
+    <nav className="w-full z-50 flexBetween padding-container relative py-3 bg-white ">
       <Link href="/">
         <Image src="/logo.svg" alt="logo" width={130} height={29} />
       </Link>

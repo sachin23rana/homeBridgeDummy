@@ -1,3 +1,4 @@
+"use client";
 import React from "react";
 import ProductCard from "./ProductCard";
 const products = [
@@ -18,7 +19,7 @@ const products = [
   { id: 7, name: "Energy Management", image: "/images/energy-management.png" },
 ];
 
-const ProductsSec = () => {
+const ProductsSec = ({setShowDetails }) => {
   return (
     <div>
       <div>
@@ -29,6 +30,7 @@ const ProductsSec = () => {
             title={product.name}
             imageSrc={product.image} 
             imageAlt={product.name}
+            setShowDetails = {setShowDetails}
           />
         ))}
       </div>
