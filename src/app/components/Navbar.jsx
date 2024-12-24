@@ -5,7 +5,7 @@ import Link from "next/link";
 
 const Navbar = ({}) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const [isMobile, setIsMobile] = useState(window.innerWidth <= 938);
+  const [isMobile, setIsMobile] = useState(938);
   const [isAnimating, setIsAnimating] = useState(false);
 
   // const NAV_LINKS = [
