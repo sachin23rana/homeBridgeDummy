@@ -14,28 +14,28 @@ const Navbar = ({}) => {
   //   { href: "/", key: "products", label: "Products" },
   // ];
 
-  useEffect(() => {
-    const handleScroll = () => {
-      const navbar = document.getElementsByClassName(styles.Navbar)[0];
-      if (window.scrollY > 50) {
-        navbar.classList.add(styles.scrolled);
-      } else {
-        navbar.classList.remove(styles.scrolled);
-      }
-    };
+  // useEffect(() => {
+  //   const handleScroll = () => {
+  //     const navbar = document.getElementsByClassName(styles.Navbar)[0];
+  //     if (window.scrollY > 50) {
+  //       navbar.classList.add(styles.scrolled);
+  //     } else {
+  //       navbar.classList.remove(styles.scrolled);
+  //     }
+  //   };
 
-    const handleResize = () => {
-      setIsMobile(window.innerWidth <= 938);
-    };
+  //   const handleResize = () => {
+  //     setIsMobile(window.innerWidth <= 938);
+  //   };
 
-    window.addEventListener("scroll", handleScroll);
-    window.addEventListener("resize", handleResize);
+  //   window.addEventListener("scroll", handleScroll);
+  //   window.addEventListener("resize", handleResize);
 
-    return () => {
-      window.removeEventListener("scroll", handleScroll);
-      window.removeEventListener("resize", handleResize);
-    };
-  }, []);
+  //   return () => {
+  //     window.removeEventListener("scroll", handleScroll);
+  //     window.removeEventListener("resize", handleResize);
+  //   };
+  // }, []);
 
   const toggleMenu = () => {
     if (isAnimating) return;

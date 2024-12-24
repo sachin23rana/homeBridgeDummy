@@ -21,14 +21,14 @@ const HeroSection = () => {
     localStorage.setItem("typewriterAnimated", "true");
   };
 
-  useEffect(() => {
-    const handleResize = () => {
-      setIsMobile(window.innerWidth <= 938);
-    };
+  // useEffect(() => {
+  //   const handleResize = () => {
+  //     setIsMobile(window.innerWidth <= 938);
+  //   };
 
-    window.addEventListener("resize", handleResize);
-    return () => window.removeEventListener("resize", handleResize);
-  }, []);
+  //   window.addEventListener("resize", handleResize);
+  //   return () => window.removeEventListener("resize", handleResize);
+  // }, []);
 
   const words = [
     { text: "Revolutionize" },
