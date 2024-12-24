@@ -5,7 +5,9 @@ import { TypewriterEffectSmooth } from "./ui/typewriter-effect";
 
 const HeroSection = () => {
   const [firstTypewriterComplete, setFirstTypewriterComplete] = useState(false);
-  const [isMobile, setIsMobile] = useState(window.innerWidth <= 938);
+  // const [isMobile, setIsMobile] = useState(window.innerWidth <= 938);
+  const [isMobile, setIsMobile] = useState(938);
+
   const [hasAnimated, setHasAnimated] = useState(false);
 
   useEffect(() => {
