@@ -1,35 +1,128 @@
-import React from "react";
+"use client";
+import React, { useEffect, useState } from "react";
+import styles from "./Nav2.module.css";
 import Link from "next/link";
-import Image from "next/image";
-import Button from "./Button";
 
-const Navbar = () => {
-  const NAV_LINKS = [
-    { href: "/", key: "home", label: "Home" },
-    { href: "/", key: "about", label: "About" },
-    { href: "/", key: "products", label: "Products" },
-  ];
+const Navbar = ({}) => {
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [isMobile, setIsMobile] = useState(window.innerWidth <= 938);
+  const [isAnimating, setIsAnimating] = useState(false);
+
+  // const NAV_LINKS = [
+  //   { href: "/", key: "home", label: "Home" },
+  //   { href: "/", key: "about", label: "About" },
+  //   { href: "/", key: "products", label: "Products" },
+  // ];
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const navbar = document.getElementsByClassName(styles.Navbar)[0];
+      if (window.scrollY > 50) {
+        navbar.classList.add(styles.scrolled);
+      } else {
+        navbar.classList.remove(styles.scrolled);
+      }
+    };
+
+    const handleResize = () => {
+      setIsMobile(window.innerWidth <= 938);
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    window.addEventListener("resize", handleResize);
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+      window.removeEventListener("resize", handleResize);
+    };
+  }, []);
+
+  const toggleMenu = () => {
+    if (isAnimating) return;
+
+    if (isMenuOpen) {
+      setIsAnimating(true);
+      setIsMenuOpen(false);
+
+      setTimeout(() => {
+        setIsAnimating(false);
+      }, 500);
+    } else {
+      setIsAnimating(true);
+      setIsMenuOpen(true);
+
+      setTimeout(() => {
+        setIsAnimating(false);
+      }, 500);
+    }
+  };
+
+  const renderNavItems = () => (
+    <ul
+      className={`${styles.navList} ${isMenuOpen ? styles.mobileNavList : ""}`}
+    >
+      <li>
+        <Link href="/"> Home</Link>
+      </li>
+      <li>
+        <Link href="/">About</Link>
+      </li>
+      <li>
+        <Link href="/">Products</Link>
+      </li>
+    </ul>
+  );
+
+  const renderNavRight = () => (
+    <div
+      className={`${styles.navRight} ${
+        isMenuOpen ? styles.mobileNavRight : ""
+      }`}
+    >
+      <button className="p-2">Explore More</button>
+    </div>
+  );
 
   return (
-    <nav className="w-full z-50 flexBetween padding-container relative py-3 bg-white ">
-      <Link href="/">
-        <Image src="/logo.svg" alt="logo" width={130} height={29} />
-      </Link>
-      <ul className="hidden h-full gap-10 lg:flex">
-        {NAV_LINKS.map((link) => (
-          <Link
-            href={link.href}
-            key={link.key}
-            className="medium-14 text-black flexCenter cursor-pointer pb-1.5 transition-all  hover:font-bold"
-          >
-            {link.label}
-          </Link>
-        ))}
-      </ul>
-      <Link href="/">
-        <Button type="button" title="Explore More" variant="btn_blue" />
-      </Link>
-    </nav>
+    <>
+      <div className={styles.Navbar}>
+        <Link href="/">
+          <img src="/logo.svg" alt="Logo" className={styles.logo} />
+        </Link>
+
+        {isMobile ? (
+          <>
+            <div className={styles.navRight}>
+              <div
+                className={`${styles.hamburger} ${
+                  isMenuOpen ? styles.open : ""
+                }`}
+                onClick={toggleMenu}
+              >
+                <span></span>
+                <span></span>
+                <span></span>
+              </div>
+            </div>
+
+            {isMenuOpen && (
+              <div className={styles.mobileMenu}>
+                <ul className={` ${isMenuOpen ? styles.mobileNavList : ""}`}>
+                  <li>Home</li>
+                  <li>About</li>
+                  <li>Products</li>
+                </ul>
+              </div>
+            )}
+          </>
+        ) : (
+          <>
+            {renderNavItems()}
+            {renderNavRight()}
+          </>
+        )}
+      </div>
+    </>
   );
 };
 

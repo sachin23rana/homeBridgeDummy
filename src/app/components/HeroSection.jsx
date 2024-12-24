@@ -4,25 +4,22 @@ import CustomCard from "./CustomCard";
 import { TypewriterEffectSmooth } from "./ui/typewriter-effect";
 
 const HeroSection = () => {
+  const [firstTypewriterComplete, setFirstTypewriterComplete] = useState(false);
   const [isMobile, setIsMobile] = useState(window.innerWidth <= 938);
-  const words = [
-    {
-      text: "Revolutionize",
-    },
-    {
-      text: "your",
-    },
-    {
-      text: "Home",
-    },
-    {
-      text: "with",
-    },
-    {
-      text: "HB.ai",
-      className: "text-[#0D72B9] dark:text-[#0D72B9]",
-    },
-  ];
+  const [hasAnimated, setHasAnimated] = useState(false);
+
+  useEffect(() => {
+    const animationPlayed = localStorage.getItem("typewriterAnimated");
+    if (animationPlayed) {
+      setHasAnimated(true);
+      setFirstTypewriterComplete(true);
+    }
+  }, []);
+
+  const handleFirstTypewriterComplete = () => {
+    setFirstTypewriterComplete(true);
+    localStorage.setItem("typewriterAnimated", "true");
+  };
 
   useEffect(() => {
     const handleResize = () => {
@@ -30,21 +27,71 @@ const HeroSection = () => {
     };
 
     window.addEventListener("resize", handleResize);
-
-    return () => {
-      window.removeEventListener("resize", handleResize);
-    };
+    return () => window.removeEventListener("resize", handleResize);
   }, []);
 
+  const words = [
+    { text: "Revolutionize" },
+    { text: "your" },
+    { text: "Home" },
+    { text: "with" },
+  ];
+
+  const heading = [
+    {
+      text: "HB.ai",
+      className:
+        "text-[#0D72B9] hover:text-[#2B9EE6] dark:text-[#3AA5ED] dark:hover:text-[#5DB7F3]",
+    },
+  ];
+
+  
+
+  const cards = [
+    {
+      id: 1,
+      name: "Customized Home Improvement",
+      desc: "The HB.ai engine will bundle the most cost effective, energy saving home solutions for you.  Increase the value of your home with innovation.",
+      image: "icons/icon1.png",
+    },
+    {
+      id: 1,
+      name: "Easy Monthly Payment",
+      desc: " Hb.ai will provide the lowest monthly payment available for your turnkey bundle.  The energy savings calculator will clearly showcase your monthly savings.",
+      image: "icons/icon2.png",
+    },
+    {
+      id: 1,
+      name: "Peace of Mind",
+      desc: "HB.ai provides a bumper to bumper warranty on all product, parts and labor on all customized bundles.  You have zero worries during the HB.ai subscription.",
+      image: "icons/icon3.png",
+    },
+  ];
+
   return (
-    <section className="relative flex flex-col items-center justify-center bg-bg-img-1 bg-cover bg-center bg-no-repeat min-h-screen text-white px-4">
+    <section className="relative flex flex-col items-center justify-center bg-bg-img-1 bg-cover bg-center bg-no-repeat h-[120vh] text-white px-4">
       <div className="text-center mb-8 flex flex-col items-center mt-6 justify-center ">
         <h4 className="text-sm font-light">AMERICA'S HOME INNOVATION</h4>
         {!isMobile ? (
-          <h1 className="text-4xl md:text-5xl font-semibold mb-3">
-            <TypewriterEffectSmooth words={words} />
-            {/* Revolutionize your Home with{" "}
-            <span className="text-[#0D72B9]">HB.ai</span> */}
+          <h1 className="text-4xl md:text-5xl flex items-center flex-col justify-center font-semibold mb-3">
+            <TypewriterEffectSmooth
+              words={words}
+              showCursor={true}
+              onComplete={handleFirstTypewriterComplete}
+              duration={2}
+              isFirst={true}
+              isTypingComplete={firstTypewriterComplete}
+              hasAnimated={hasAnimated}
+            />
+            <TypewriterEffectSmooth
+              words={heading}
+              startDelay={firstTypewriterComplete ? 0 : 2.5}
+              showCursor={true}
+              duration={0.7}
+              isFirst={false}
+              isTypingComplete={firstTypewriterComplete}
+              hasAnimated={hasAnimated}
+            />
           </h1>
         ) : (
           <h1 className="text-4xl md:text-5xl font-semibold mb-6">
@@ -78,9 +125,9 @@ const HeroSection = () => {
       </div>
 
       <div className="relative flex items-center justify-center gap-8 w-full max-w-7xl px-4">
-        <CustomCard />
-        <CustomCard />
-        <CustomCard />
+        {cards.map((card, index) => (
+          <CustomCard key={index} card = {card}/>
+        ))}
       </div>
       <style jsx>{`
         .spotlight-center {
@@ -95,7 +142,7 @@ const HeroSection = () => {
           );
           left: calc(50% - 10px);
           top: 100%;
-          animation: moveDown 5s infinite;
+          animation: moveDown 10s infinite;
           filter: blur(5px);
           box-shadow: 0 0 20px 10px rgba(255, 255, 255, 0.6);
         }
@@ -113,7 +160,7 @@ const HeroSection = () => {
           left: 0;
           top: -50%;
           opacity: 0;
-          animation: moveLeft 5s infinite;
+          animation: moveLeft 10s infinite;
           filter: blur(5px);
           box-shadow: 0 0 20px 10px rgba(255, 255, 255, 0.6);
         }
@@ -127,12 +174,12 @@ const HeroSection = () => {
             circle,
             rgba(255, 255, 255, 1) 0%,
             rgba(255, 255, 255, 0.8) 70%
-          );  
+          );
 
           right: 0;
           top: 0;
           opacity: 0;
-          animation: moveRight 5s infinite;
+          animation: moveRight 10s infinite;
           filter: blur(5px);
           box-shadow: 0 0 20px 10px rgba(255, 255, 255, 0.6);
         }

@@ -1,22 +1,24 @@
 "use client";
 import React from "react";
 
-const CustomCard = () => {
+const CustomCard = ({card}) => {
   return (
     <div className="card-wrapper z-20">
       <div className="card-all relative flex flex-col items-center justify-start p-6 rounded-xl bg-black/90 border border-gray-800 shadow-lg shadow-blue-500/20 w-64 h-80">
-        
-        <div className="mb-4">
-          <img src="icons/CardIcon.png" alt="Card Icon" className="h-28 w-32" />
+        <div className="mb-8 h-20 w-20 shadow-3xl overflow-hidden rounded-xl">
+          <img
+            src={card.image}
+            alt="Card Icon"
+            className="h-[100%] w-[105%]"
+          />
         </div>
 
         <h3 className="text-xl font-semibold text-white text-center mb-2">
-          Card Title Here
+          {card.name}
         </h3>
 
         <p className="text-center text-gray-400 text-sm">
-          This is a placeholder description for the card. Customize it with your
-          text to make it relevant to your design.
+          {card.desc}
         </p>
       </div>
       <style jsx>{`
@@ -37,7 +39,7 @@ const CustomCard = () => {
           content: "";
           position: absolute;
           inset: 0;
-          
+
           border-radius: 20px 20px 16px 16px;
           background: #fffbe6;
           filter: blur(3px);

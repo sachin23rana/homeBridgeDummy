@@ -91,6 +91,9 @@ export default {
         md: "calc(var(--radius) - 2px)",
         sm: "calc(var(--radius) - 4px)",
       },
+      boxShadow: {
+        '3xl': '0px 8px 20px 0px rgba(13,114,185,0.6)',
+      }
     },
   },
   plugins: [require("tailwindcss-animate")],
